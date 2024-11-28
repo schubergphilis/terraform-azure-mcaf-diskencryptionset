@@ -26,8 +26,8 @@ variable "resource_group_name" {
 
 variable "auto_key_rotation_enabled" {
   type        = bool
-  default     = false
-  description = "Whether or not auto key rotation is enabled for the encryption set."
+  default     = true
+  description = "Whether or not auto key rotation is enabled for the encryption set, defaults to true."
 }
 
 variable "encryption_type" {

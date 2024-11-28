@@ -7,7 +7,6 @@ resource "azurerm_disk_encryption_set" "this" {
   federated_client_id       = var.federated_client_id
   key_vault_key_id          = var.key_vault_key_id
   managed_hsm_key_id        = var.managed_hsm_key_id
-  tags                      = var.tags
 
   dynamic "identity" {
     for_each = local.managed_identities.system_assigned_user_assigned
@@ -17,6 +16,13 @@ resource "azurerm_disk_encryption_set" "this" {
       identity_ids = identity.value.user_assigned_resource_ids
     }
   }
+
+  tags = merge(
+    try(var.tags),
+    tomap({
+      "Resource Type" = "Disk Encryption Set"
+    })
+  )
 }
 
 resource "azurerm_role_assignment" "this" {
