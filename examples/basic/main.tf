@@ -21,6 +21,10 @@ module "key_vault" {
     tenant_id           = data.azurerm_client_config.current.tenant_id
     cmk_keys_create     = true
   }
+
+  tags = {
+    environment = "dev"
+  }
 }
 
 module "des" {
