@@ -15,11 +15,11 @@ module "key_vault" {
   source = "github.com/schubergphilis/terraform-azure-mcaf-key-vault?ref=v.0.2.2"
 
   key_vault = {
-    name                          = "example"
-    resource_group_name           = "keyvault-rg"
-    location                      = "westeurope"
-    tenant_id                     = data.azurerm_client_config.current.tenant_id
-    cmk_keys_create               = true
+    name                = "example"
+    resource_group_name = "keyvault-rg"
+    location            = "westeurope"
+    tenant_id           = data.azurerm_client_config.current.tenant_id
+    cmk_keys_create     = true
   }
 }
 
