@@ -35,7 +35,7 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location) | Azure region where the resource should be deployed. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the disk encryption set. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group in which to create the disk encryption set. | `string` | n/a | yes |
-| <a name="input_auto_key_rotation_enabled"></a> [auto\_key\_rotation\_enabled](#input\_auto\_key\_rotation\_enabled) | Whether or not auto key rotation is enabled for the encryption set. | `bool` | `false` | no |
+| <a name="input_auto_key_rotation_enabled"></a> [auto\_key\_rotation\_enabled](#input\_auto\_key\_rotation\_enabled) | Whether or not auto key rotation is enabled for the encryption set, defaults to true. | `bool` | `true` | no |
 | <a name="input_encryption_type"></a> [encryption\_type](#input\_encryption\_type) | The type of encryption to be used. Allowed Values are'EncryptionAtRestWithCustomerKey', 'EncryptionAtRestWithPlatformAndCustomerKeys' and 'ConfidentialVmEncryptedWithCustomerKey'. | `string` | `"EncryptionAtRestWithCustomerKey"` | no |
 | <a name="input_federated_client_id"></a> [federated\_client\_id](#input\_federated\_client\_id) | Multi-tenant application client id to access key vault in a different tenant. | `string` | `null` | no |
 | <a name="input_managed_hsm_key_id"></a> [managed\_hsm\_key\_id](#input\_managed\_hsm\_key\_id) | The Managed HSM Key ID used for encryption. | `string` | `null` | no |
