@@ -32,8 +32,8 @@ module "des" {
   name                      = "example"
   resource_group_name       = "des-rg"
   location                  = "westeurope"
-  key_vault_key_id          = module.key_vault.resource_versionless_id
-  key_vault_resource_id     = module.key_vault.id
+  key_vault_key_id          = module.key_vault.cmkrsa_resource_versionless_id
+  key_vault_resource_id     = module.key_vault.key_vault_id
   auto_key_rotation_enabled = true
   managed_identities = {
     system_assigned = true
