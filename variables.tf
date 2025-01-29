@@ -48,27 +48,16 @@ variable "managed_hsm_key_id" {
   description = "The Managed HSM Key ID used for encryption."
 }
 
-variable "managed_identities" {
-  type = object({
-    system_assigned            = optional(bool, false)
-    user_assigned_resource_ids = optional(set(string), [])
-  })
-  default     = {}
-  description = <<DESCRIPTION
-Controls the Managed Identity configuration on this resource. The following properties can be specified:
-
-- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.
-- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.
-
-Example Input:
-
-```hcl
-managed_identities = {
-  system_assigned = true
+variable "system_assigned_identity_enabled" {
+  type        = bool
+  default     = true
+  description = "Enable or disable the system-assigned managed identity. Defaults to true."
 }
-```
-DESCRIPTION
-  nullable    = false
+
+variable "user_assigned_identities" {
+  type        = list(string)
+  default     = []
+  description = "List of user assigned identities to assign"
 }
 
 variable "tags" {
