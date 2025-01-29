@@ -28,13 +28,13 @@ module "key_vault" {
 }
 
 module "des" {
-  source                    = "../../"
-  name                      = "example"
-  resource_group_name       = "des-rg"
-  location                  = "westeurope"
-  key_vault_key_id          = module.key_vault.cmkrsa_resource_versionless_id
-  key_vault_resource_id     = module.key_vault.key_vault_id
-  auto_key_rotation_enabled = true
-  user_assigned_identities = []
+  source                           = "../../"
+  name                             = "example"
+  resource_group_name              = "des-rg"
+  location                         = "westeurope"
+  key_vault_key_id                 = module.key_vault.cmkrsa_resource_versionless_id
+  key_vault_resource_id            = module.key_vault.key_vault_id
+  auto_key_rotation_enabled        = true
+  user_assigned_identities         = []
   system_assigned_identity_enabled = false
 }
