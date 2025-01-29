@@ -9,7 +9,7 @@ resource "azurerm_disk_encryption_set" "this" {
   managed_hsm_key_id        = var.managed_hsm_key_id
 
   dynamic "identity" {
-    for_each = local.managed_identities.system_assigned_user_assigned
+    for_each = coalesce(local.identity_system_assigned_user_assigned, local.identity_system_assigned, local.identity_user_assigned)
 
     content {
       type         = identity.value.type
