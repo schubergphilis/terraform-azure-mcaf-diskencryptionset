@@ -26,7 +26,7 @@ resource "azurerm_disk_encryption_set" "this" {
 }
 
 resource "azurerm_role_assignment" "this" {
-  count = (local.identity_system_assigned != null || local.identity_system_assigned_user_assigned != null) ? 1 : 0
+  count                = (local.identity_system_assigned != null || local.identity_system_assigned_user_assigned != null) ? 1 : 0
   principal_id         = azurerm_disk_encryption_set.this.identity[0].principal_id
   scope                = var.key_vault_resource_id
   role_definition_name = "Key Vault Crypto Service Encryption User"
