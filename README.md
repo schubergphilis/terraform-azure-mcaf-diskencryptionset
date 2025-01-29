@@ -39,8 +39,9 @@ No modules.
 | <a name="input_encryption_type"></a> [encryption\_type](#input\_encryption\_type) | The type of encryption to be used. Allowed Values are'EncryptionAtRestWithCustomerKey', 'EncryptionAtRestWithPlatformAndCustomerKeys' and 'ConfidentialVmEncryptedWithCustomerKey'. | `string` | `"EncryptionAtRestWithCustomerKey"` | no |
 | <a name="input_federated_client_id"></a> [federated\_client\_id](#input\_federated\_client\_id) | Multi-tenant application client id to access key vault in a different tenant. | `string` | `null` | no |
 | <a name="input_managed_hsm_key_id"></a> [managed\_hsm\_key\_id](#input\_managed\_hsm\_key\_id) | The Managed HSM Key ID used for encryption. | `string` | `null` | no |
-| <a name="input_managed_identities"></a> [managed\_identities](#input\_managed\_identities) | Controls the Managed Identity configuration on this resource. The following properties can be specified:<br><br>- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.<br>- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.<br><br>Example Input:<pre>hcl<br>managed_identities = {<br>  system_assigned = true<br>}</pre> | <pre>object({<br>    system_assigned            = optional(bool, false)<br>    user_assigned_resource_ids = optional(set(string), [])<br>  })</pre> | `{}` | no |
+| <a name="input_system_assigned_identity_enabled"></a> [system\_assigned\_identity\_enabled](#input\_system\_assigned\_identity\_enabled) | Enable or disable the system-assigned managed identity. Defaults to true. | `bool` | `true` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | (Optional) Tags of the resource. | `map(string)` | `null` | no |
+| <a name="input_user_assigned_identities"></a> [user\_assigned\_identities](#input\_user\_assigned\_identities) | List of user assigned identities to assign | `list(string)` | `[]` | no |
 
 ## Outputs
 
