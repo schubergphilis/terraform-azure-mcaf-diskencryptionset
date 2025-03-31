@@ -15,7 +15,7 @@ data "azurerm_resource_group" "this" {
 resource "azurerm_disk_encryption_set" "this" {
   name                      = var.name
   location                  = var.location
-  resource_group_name       = var.create_new_resource_group ? azurerm_resource_group.this.name : data.azurerm_resource_group.this.name
+  resource_group_name       = var.create_new_resource_group ? azurerm_resource_group.this[0].name : data.azurerm_resource_group.this[0].name
   auto_key_rotation_enabled = var.auto_key_rotation_enabled
   encryption_type           = var.encryption_type
   federated_client_id       = var.federated_client_id
