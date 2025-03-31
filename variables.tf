@@ -24,6 +24,12 @@ variable "resource_group_name" {
   description = "The name of the resource group in which to create the disk encryption set."
 }
 
+variable "create_new_resource_group" {
+  type        = bool
+  default     = false
+  description = "If true, a new resource group will be created."
+}
+
 variable "auto_key_rotation_enabled" {
   type        = bool
   default     = true
@@ -32,19 +38,19 @@ variable "auto_key_rotation_enabled" {
 
 variable "encryption_type" {
   type        = string
-  default     = "EncryptionAtRestWithCustomerKey" # Optional: Adjust default value based on your requirements
+  default     = "EncryptionAtRestWithCustomerKey"
   description = "The type of encryption to be used. Allowed Values are'EncryptionAtRestWithCustomerKey', 'EncryptionAtRestWithPlatformAndCustomerKeys' and 'ConfidentialVmEncryptedWithCustomerKey'."
 }
 
 variable "federated_client_id" {
   type        = string
-  default     = null # Optional: Set to an empty string if not using a federated service principal
+  default     = null
   description = " Multi-tenant application client id to access key vault in a different tenant."
 }
 
 variable "managed_hsm_key_id" {
   type        = string
-  default     = null # Optional: Set to an empty string if not using Managed HSM
+  default     = null
   description = "The Managed HSM Key ID used for encryption."
 }
 
@@ -55,13 +61,13 @@ variable "system_assigned_identity_enabled" {
 }
 
 variable "user_assigned_identities" {
-  type        = list(string)
+  type        = set(string)
   default     = []
-  description = "List of user assigned identities to assign"
+  description = "Set of user assigned identities to assign"
 }
 
 variable "tags" {
   type        = map(string)
-  default     = null
+  default     = {}
   description = "(Optional) Tags of the resource."
 }
