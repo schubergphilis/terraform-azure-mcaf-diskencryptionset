@@ -18,5 +18,6 @@ locals {
     }
   } : null
 
-  identity = coalesce(local.identity_system_assigned_user_assigned, local.identity_system_assigned, local.identity_user_assigned)
+  identity               = coalesce(local.identity_system_assigned_user_assigned, local.identity_system_assigned, local.identity_user_assigned)
+  create_role_assignment = var.create_role_assignment && (local.identity_system_assigned != null || local.identity_system_assigned_user_assigned != null)
 }

@@ -8,6 +8,12 @@ variable "key_vault_resource_id" {
   description = "The resource ID of the Key Vault to associate with the disk encryption set."
 }
 
+variable "create_role_assignment" {
+  type        = bool
+  default     = true
+  description = "If true, a role assignment for the CMK will be created."
+}
+
 variable "location" {
   type        = string
   description = "Azure region where the resource should be deployed."
