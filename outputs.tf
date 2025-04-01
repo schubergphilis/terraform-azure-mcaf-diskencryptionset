@@ -7,3 +7,4 @@ output "resource_id" {
   description = "The ID of the disk encryption set."
   value       = azurerm_disk_encryption_set.this.id
 }
+
