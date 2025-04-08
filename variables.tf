@@ -24,6 +24,12 @@ variable "resource_group_name" {
   description = "The name of the resource group in which to create the disk encryption set."
 }
 
+variable "register_provider" {
+  type        = bool
+  default     = false
+  description = "If true, the provider for d."
+}
+
 variable "create_new_resource_group" {
   type        = bool
   default     = false
