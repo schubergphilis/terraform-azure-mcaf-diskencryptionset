@@ -1,3 +1,14 @@
+resource "azurerm_resource_provider_registration" "encryption_at_host" {
+  count = var.register_provider ? 1 : 0
+
+  name = "Microsoft.Compute"
+
+  feature {
+    name       = "EncryptionAtHost"
+    registered = true
+  }
+}
+
 resource "azurerm_resource_group" "this" {
   count = var.create_new_resource_group ? 1 : 0
 
